@@ -1,0 +1,47 @@
+﻿@page "{id:int}"
+@model DeLaSalle.Ecommerce.WebApplication.Pages.Brand.DeleteModel
+@{
+}
+<div class="container-fluid">
+    <form method="post">
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-10">
+                <h1>Eliminar @Model.Marca.Name </h1>
+                @if (Model.Errors.Count > 0)
+                {
+                    <div class="alert alert-danger" role="alert">
+                        <ul>
+                            @foreach (var error in Model.Errors)
+                            {
+                                <li>@error</li>
+                            }
+                        </ul>
+                    </div>
+                }
+                <div class="form-group">
+                    <label asp-for="Marca.Id"></label>
+                    <input asp-for="Marca.Id" class="form-control" readonly />
+                    <span class="text-danger" asp-validation-for="Marca.Id"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Marca.Name"></label>
+                    <input asp-for="Marca.Name" class="form-control" maxlength="45" readonly />
+                    <span class="text-danger" asp-validation-for="Marca.Name"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Marca.Description"></label>
+                    <input asp-for="Marca.Description" class="form-control" maxlength="100" readonly />
+                    <span class="text-danger" asp-validation-for="Marca.Description"></span>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 text-right">
+                        <br />
+                        <button type="submit" class="btn btn-danger">Eliminar</button>
+                        <a class="btn btn-secondary" asp-page="/Brand/List">Cancelar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

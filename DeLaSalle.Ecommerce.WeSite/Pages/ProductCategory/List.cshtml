@@ -1,0 +1,40 @@
+﻿@page
+@model DeLaSalle.Ecommerce.WebApplication.Pages.ProductCategory.ListModel
+@{
+}
+<div class="container-fluid">
+    <form method="get">
+        <div class="row">
+            <div class="col-md-8"></div>
+            <div class="col-md-4">
+                <br />
+                <button id="btnSearch" class="btn btn-primary mr-3">Búsqueda</button>
+                <a asp-page=".\Edit" class="btn btn-success">Nuevo</a>
+            </div>
+        </div>
+    </form>
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
+            <table class="table">
+                <tr>
+                    <th>Name</th>
+                    <th>Descripción</th>
+                    <th>Acción</th>
+                </tr>
+                @foreach (var cat in Model.Productos)
+                {
+                    <tr>
+                        <td>@cat.Name</td>
+                        <td>@cat.Description</td>
+                        <td>
+                            <a class="btn btn-primary" asp-page="/ProductCategory/Edit" asp-route-id="@cat.Id">Edit</a>
+                            <a class="btn btn-danger" asp-page="/ProductCategory/Delete" asp-route-id="@cat.Id">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </table>
+        </div>
+        <div class="col-md-1"></div>
+    </div>
+</div>
